@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="32dcad95-f538-4df3-9ce4-d2fa39087054" >
+		<http:request-connection host="mu.mulesoft-training.com" port="80" />
+	</http:request-config>
+	<flow name="united_flightsFlow" doc:id="6a10e8e8-4912-47eb-a94e-49a429172d7c" >
+		<logger level="INFO" doc:name="Logger" doc:id="3bd8d8c0-db20-409b-8a9d-3665bb45c6e6" message="request is rwceived.................."/>
+		<http:request method="GET" doc:name="Request" doc:id="60d9b311-920a-4c68-af1a-542dbf84449f" config-ref="HTTP_Request_configuration" path="/essentials/united/flights"/>
+		<logger level="INFO" doc:name="Logger" doc:id="0402e5ff-ad3d-49c4-a957-aa5f308d61ab" message="responnse....................#[payload]"/>
+		<error-handler >
+			<raise-error doc:name="Raise error" doc:id="788f6d51-900c-48a4-8dc6-12115ddec18c" type="network" description="network is problem"/>
+		</error-handler>
+	</flow>
+</mule>

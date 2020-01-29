@@ -1,0 +1,38 @@
+#%RAML 1.0
+title: Sample API
+
+baseUri: http://localhost:8083/api
+
+/unitedflights:
+ get: 
+   responses:
+     200:
+         body:
+           application/json: 
+                   example: ! include examples/get-response.json
+                   
+
+/unitedflightsbydestination:
+  get: 
+   queryParameters: 
+    destination:
+      required: true
+   responses: 
+     200:
+      body: 
+       application/json: 
+          example: ! include examples/get-response.json 
+          
+           
+          
+/unitedflights/{destination}:
+ get: 
+  responses: 
+    200:
+      body: 
+       application/json: 
+        example:   ! include examples/get-response.json                                   
+    
+   
+   
+   
