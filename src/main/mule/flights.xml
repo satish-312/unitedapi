@@ -95,8 +95,7 @@ output application/json
     </flow>
     <flow name="flights-console">
         <http:listener config-ref="flights-httpListenerConfig" path="/console/*">
-            <http:response statusCode="#[vars.httpStatus default 200]">
-            </http:response>
+            <http:response statusCode="#[vars.httpStatus default 200]" />
             <http:error-response statusCode="#[vars.httpStatus default 500]">
                 <http:body><![CDATA[#[payload]]]></http:body>
             </http:error-response>
@@ -130,6 +129,9 @@ output application/json
                 <ee:set-variable variableName="destination"><![CDATA[attributes.uriParams.destination]]></ee:set-variable>
             </ee:variables>
         </ee:transform>
-		<flow-ref doc:name="uriparamsFlow" doc:id="eacd1982-ae21-4af8-9731-69748409fab7" name="uriparamsFlow"/>
+        <flow-ref doc:name="uriparamsFlow" doc:id="eacd1982-ae21-4af8-9731-69748409fab7" name="uriparamsFlow" />
+    </flow>
+    <flow name="get:\createaccount:flights-config">
+		<flow-ref doc:name="Flow Reference" doc:id="ffa255eb-00ee-4489-8d9b-f327cfb789a5" name="accountFlow"/>
     </flow>
 </mule>

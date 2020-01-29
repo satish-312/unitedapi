@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<flow name="accountFlow" doc:id="e93651b9-2750-418c-8070-f37428178467" >
+		<logger level="INFO" doc:name="Logger" doc:id="f7a3b540-3f06-4213-8ef3-25ea4cda4f27" message="requist"/>
+	</flow>
+</mule>
